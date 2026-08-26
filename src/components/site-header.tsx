@@ -6,7 +6,7 @@ export default function SiteHeader() {
     <header className="grid grid-cols-[1fr_auto] items-center py-6 md:grid-cols-[1fr_auto_1fr]">
       <Link
         href="/"
-        className="justify-self-start text-lg font-medium tracking-[-0.02em] transition-opacity hover:opacity-60"
+        className="justify-self-start cursor-pointer text-lg font-medium tracking-[-0.02em] transition-opacity hover:opacity-60 active:opacity-80"
       >
         chmndu
       </Link>
@@ -14,14 +14,14 @@ export default function SiteHeader() {
       <nav className="flex items-center gap-6 justify-self-end text-sm md:col-start-3">
         <Link
           href="/"
-          className="transition-opacity hover:opacity-60"
+          className="cursor-pointer transition-colors hover:text-accent-deep active:text-accent"
         >
           Work
         </Link>
 
         <Link
           href="/about"
-          className="text-muted transition-colors hover:text-foreground"
+          className="cursor-pointer text-muted transition-colors hover:text-accent-deep active:text-accent"
         >
           About
         </Link>
