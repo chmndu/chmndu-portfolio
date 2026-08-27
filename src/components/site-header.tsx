@@ -27,7 +27,7 @@ export default function SiteHeader() {
         </Link>
       </nav>
 
-      <div className="col-span-2 mt-5 justify-self-start md:col-span-1 md:col-start-2 md:row-start-1 md:mt-0 md:justify-self-center">
+      <div className="col-span-2 mt-7 justify-self-start md:col-span-1 md:col-start-2 md:row-start-1 md:mt-0 md:justify-self-center">
         <ContextDisplay />
       </div>
     </header>

@@ -72,7 +72,7 @@ export default function ProjectStage({
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="mt-8">
+    <section className="mt-8 md:mt-12">
       <AnimatePresence mode="wait">
         <motion.div
           key={project.slug}

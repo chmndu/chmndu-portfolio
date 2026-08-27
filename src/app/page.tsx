@@ -4,6 +4,7 @@ import { useState } from "react";
 import SiteHeader from "@/components/site-header";
 import ProjectIndex from "@/components/project-index";
 import ProjectStage from "@/components/project-stage";
+import SiteLinks from "@/components/site-links";
 import { projects } from "@/data/projects";
 
 export default function Home() {
@@ -32,11 +33,11 @@ export default function Home() {
   };
 
   return (
-    <main className="mx-auto min-h-screen w-full max-w-[1120px] px-6">
+    <main className="mx-auto min-h-screen w-full max-w-[1120px] px-6 pb-6">
       <SiteHeader />
 
-      <section className="pt-8">
-        <div className="flex justify-center">
+      <section className="pt-2 md:pt-8">
+        <div className="flex justify-start md:justify-center">
           <ProjectIndex
             projects={projects}
             selectedIndex={selectedIndex}
@@ -52,6 +53,10 @@ export default function Home() {
           canGoNext={selectedIndex < projects.length - 1}
           direction={direction}
         />
+
+        <div className="mt-16 flex justify-start md:justify-end">
+          <SiteLinks />
+        </div>
       </section>
     </main>
   );

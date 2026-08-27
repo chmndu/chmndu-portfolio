@@ -24,24 +24,23 @@ export default function ProjectIndex({
             type="button"
             onClick={() => onSelect(index)}
             aria-current={isActive ? "true" : undefined}
-            className="flex cursor-pointer items-center gap-1.5 text-sm transition-colors active:text-accent"
+            className="group relative cursor-pointer px-2 py-2 text-sm md:px-1 md:py-1 transition-colors active:text-accent"
           >
-            <span
-              className={`h-1.5 w-1.5 rounded-full ${
-                isActive ? "bg-accent" : "bg-transparent"
-              }`}
-              aria-hidden="true"
-            />
-
             <span
               className={
                 isActive
                   ? "text-foreground"
-                  : "text-muted hover:text-accent-deep"
+                  : "text-muted group-hover:text-accent-deep"
               }
             >
               {number}
             </span>
+
+            <span
+              aria-hidden="true"
+              className={`absolute inset-x-1 -bottom-0.5 h-px bg-accent transition-opacity ${isActive ? "opacity-100" : "opacity-0"
+                }`}
+            />
           </button>
         );
       })}
