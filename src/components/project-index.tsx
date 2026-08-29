@@ -5,18 +5,22 @@ type ProjectIndexProps = {
   projects: Project[];
   selectedIndex: number;
   onSelect: (index: number) => void;
+  onShowAll: () => void;
+  showAll: boolean;
 };
 
 export default function ProjectIndex({
   projects,
   selectedIndex,
   onSelect,
+  onShowAll,
+  showAll,
 }: ProjectIndexProps) {
   return (
-    <nav aria-label="Selected projects" className="flex items-center gap-4">
+    <nav aria-label="Project views" className="flex items-center gap-4">
       {projects.map((project, index) => {
         const number = String(index + 1).padStart(2, "0");
-        const isActive = index === selectedIndex;
+        const isActive = !showAll && index === selectedIndex;
 
         return (
           <button
@@ -49,12 +53,28 @@ export default function ProjectIndex({
         ·
       </span>
 
-      <Link
-        href="/work"
-        className="cursor-pointer text-sm text-muted transition-colors hover:text-accent-deep active:text-accent"
+      <button
+        type="button"
+        onClick={onShowAll}
+        aria-current={showAll ? "true" : undefined}
+        className="group relative cursor-pointer px-2 py-2 text-sm md:px-1 md:py-1 transition-colors active:text-accent"
       >
-        All
-      </Link>
+        <span
+          className={
+            showAll
+              ? "text-foreground"
+              : "text-muted group-hover:text-accent-deep"
+          }
+        >
+          All
+        </span>
+
+        <span
+          aria-hidden="true"
+          className={`absolute inset-x-1 -bottom-0.5 h-px bg-accent transition-opacity ${showAll ? "opacity-100" : "opacity-0"
+            }`}
+        />
+      </button>
     </nav>
   );
 }
