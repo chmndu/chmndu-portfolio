@@ -23,42 +23,6 @@ type ProjectStageProps = {
   direction: number;
 };
 
-function getPrimaryAction(project: Project) {
-  if (project.caseStudy) {
-    return {
-      label: "View case study",
-      href: project.caseStudy,
-      type: "internal" as const,
-    };
-  }
-
-  if (project.liveUrl) {
-    return {
-      label: "View live site",
-      href: project.liveUrl,
-      type: "external" as const,
-    };
-  }
-
-  if (project.externalUrl) {
-    return {
-      label: "View project",
-      href: project.externalUrl,
-      type: "external" as const,
-    };
-  }
-
-  if (project.githubUrl) {
-    return {
-      label: "GitHub",
-      href: project.githubUrl,
-      type: "external" as const,
-    };
-  }
-
-  return null;
-}
-
 export default function ProjectStage({
   project,
   onPrevious,
@@ -67,7 +31,6 @@ export default function ProjectStage({
   canGoNext,
   direction,
 }: ProjectStageProps) {
-  const primaryAction = getPrimaryAction(project);
 
   const shouldReduceMotion = useReducedMotion();
 
@@ -106,43 +69,72 @@ export default function ProjectStage({
 
           <div className="flex flex-col justify-between">
             <div>
-              <div className="text-sm text-muted">{project.year}</div>
+              <div className="text-xs text-muted">{project.year}</div>
 
-              <h1 className="mt-3 text-3xl font-bold tracking-[-0.03em] sm:text-4xl">
+              <h1 className="mt-3 text-4xl font-medium tracking-[-0.04em] sm:text-5xl">
                 {project.title}
               </h1>
 
-              <p className="mt-4 max-w-md text-base leading-7 text-muted">
+              <p className="mt-3 max-w-md text-base leading-7 text-muted">
                 {project.description}
               </p>
 
-              <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted">
-                {project.technologies.map((technology) => (
-                  <span key={technology}>{technology}</span>
+              <div className="mt-6 flex flex-wrap gap-y-1.5 text-xs text-subtle">
+                {project.technologies.map((technology, index) => (
+                  <span key={technology} className="whitespace-nowrap">
+                    {index > 0 && <span className="mx-2">·</span>}
+                    {technology}
+                  </span>
                 ))}
               </div>
 
-              {primaryAction && (
-                primaryAction.type === "internal" ? (
+              <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2">
+                {project.caseStudy && (
                   <Link
-                    href={primaryAction.href}
-                    className="mt-7 inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
+                    href={project.caseStudy}
+                    className="inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
                   >
-                    {primaryAction.label}
+                    View case study
                     <ArrowRight size={15} strokeWidth={2} />
                   </Link>
-                ) : (
+                )}
+
+                {project.liveUrl && (
                   <a
-                    href={primaryAction.href}
+                    href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-7 inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
+                    className="inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
                   >
-                    {primaryAction.label}
+                    View live site
                     <ArrowUpRight size={15} strokeWidth={2} />
                   </a>
-                )
-              )}
+                )}
+
+                {project.externalUrl && (
+                  <a
+                    href={project.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
+                  >
+                    View project
+                    <ArrowUpRight size={15} strokeWidth={2} />
+                  </a>
+                )}
+
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
+                  >
+                    GitHub
+                    <ArrowUpRight size={15} strokeWidth={2} />
+                  </a>
+                )}
+              </div>
             </div>
 
             <div className="mt-12 flex items-center gap-5 text-sm text-muted md:mt-8">

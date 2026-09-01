@@ -13,33 +13,38 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Project One",
-    slug: "project-one",
+    title: "Wordulary",
+    slug: "wordulary",
     year: "2026",
     description:
-      "A placeholder project exploring how a digital product can be presented through a focused and considered interface.",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
-    image: "/projects/project-one.svg",
-    liveUrl: "#",
+      "An AI-powered vocabulary learning app for building, organizing, and learning a personal vocabulary library.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Supabase",
+      "Gemini API",
+      "Tailwind CSS",
+    ],
+    image: "/projects/wordulary.webp",
+    liveUrl: "https://wordulary.vercel.app/",
+    githubUrl: "https://github.com/chmndu/wordulary",
   },
+
   {
-    title: "Project Two",
-    slug: "project-two",
+    title: "Invoice Generator",
+    slug: "invoice-generator",
     year: "2026",
     description:
-      "A second placeholder project used to test the selected work experience and project switching.",
-    technologies: ["React", "TypeScript", "CSS"],
-    image: "/projects/project-two.svg",
-    githubUrl: "#",
-  },
-  {
-    title: "Project Three",
-    slug: "project-three",
-    year: "2025",
-    description:
-      "A third placeholder project representing a different kind of digital work.",
-    technologies: ["Next.js", "JavaScript", "Tailwind CSS"],
-    image: "/projects/project-three.svg",
-    externalUrl: "#",
+      "A mobile-first invoice generator for small businesses, with live A4 preview and PDF or PNG export.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "html-to-image",
+    ],
+    image: "/projects/invoice-generator.webp",
+    liveUrl: "https://a4-invoice-generator.vercel.app/",
+    githubUrl: "https://github.com/chmndu/invoice-generator",
   },
 ];
