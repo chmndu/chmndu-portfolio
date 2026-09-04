@@ -12,6 +12,7 @@
 
   --accent: #c4c0ff;
   --accent-deep: #a39ffe;
+  --accent-soft: #e8e6ff;
 }
 
 @theme inline {
@@ -26,6 +27,7 @@
 
   --color-accent: var(--accent);
   --color-accent-deep: var(--accent-deep);
+  --color-accent-soft: var(--accent-soft);
 
   --font-sans: var(--font-satoshi);
 }
