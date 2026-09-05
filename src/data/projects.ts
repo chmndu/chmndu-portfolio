@@ -5,6 +5,7 @@ export type Project = {
   description: string;
   technologies: string[];
   image: string;
+  selectedImage: string;
   liveUrl?: string;
   githubUrl?: string;
   caseStudy?: string;
@@ -26,6 +27,7 @@ export const projects: Project[] = [
       "Tailwind CSS",
     ],
     image: "/projects/wordulary.webp",
+    selectedImage: "/projects/wordulary-selected.webp",
     liveUrl: "https://wordulary.vercel.app/",
     githubUrl: "https://github.com/chmndu/wordulary",
   },
@@ -44,6 +46,7 @@ export const projects: Project[] = [
       "html-to-image",
     ],
     image: "/projects/invoice-generator.webp",
+    selectedImage: "/projects/invoice-generator-selected.webp",
     liveUrl: "https://a4-invoice-generator.vercel.app/",
     githubUrl: "https://github.com/chmndu/invoice-generator",
   },

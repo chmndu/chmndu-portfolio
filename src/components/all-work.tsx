@@ -14,18 +14,46 @@ export default function AllWork({ projects }: AllWorkProps) {
             <div>
                 <h2 className="text-sm text-muted">Selected work</h2>
 
-                <div className="mt-6 grid gap-6 md:grid-cols-2">
+                <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
                     {projects.map((project) => (
                         <Link
                             key={project.slug}
                             href={`/work/${project.slug}`}
                             className="group block cursor-pointer"
                         >
-                            <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#e9e8e5]">
-                                <div className="absolute inset-0 flex items-end p-4">
-                                    <span className="text-sm text-subtle transition-colors group-hover:text-foreground">
+                            <div className="relative aspect-[4/3] w-full overflow-hidden md:aspect-[16/9]">
+                                <Image
+                                    src={project.selectedImage}
+                                    alt={`${project.title} preview`}
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                                />
+
+                                <div className="absolute bottom-2 left-2 bg-accent px-3 py-2 transition-colors duration-300 group-hover:bg-accent-deep">
+                                    <h3 className="flex items-center gap-1 text-sm font-medium">
                                         {project.title}
-                                    </span>
+
+                                        <ArrowUpRight
+                                            size={13}
+                                            strokeWidth={1.75}
+                                            className="text-foreground/70 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                                        />
+                                    </h3>
+
+                                    <div className="mt-1 flex flex-wrap gap-x-2 gap-y-1 text-xs text-foreground/70">
+                                        <span>{project.year}</span>
+                                        <span>·</span>
+
+                                        {project.technologies.slice(0, 2).map((technology, index) => (
+                                            <span key={technology}>
+                                                {technology}
+                                                {index < Math.min(project.technologies.length, 2) - 1 && (
+                                                    <span className="ml-2">·</span>
+                                                )}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </Link>
@@ -56,7 +84,7 @@ export default function AllWork({ projects }: AllWorkProps) {
                                         src={item.mobileImage ?? item.image}
                                         alt={`${item.title} preview`}
                                         fill
-                                        sizes="100vw"
+                                        sizes="calc(100vw - 3rem)"
                                         className="object-cover"
                                     />
                                 </div>
@@ -71,7 +99,7 @@ export default function AllWork({ projects }: AllWorkProps) {
                                     />
                                 </div>
 
-                                <div className="absolute bottom-2 left-2 bg-accent px-3 py-2">
+                                <div className="absolute bottom-2 left-2 bg-accent px-3 py-2 transition-colors duration-300 group-hover:bg-accent-deep">
                                     <h3 className="flex items-center gap-1 text-sm font-medium">
                                         {item.title}
 
@@ -79,7 +107,7 @@ export default function AllWork({ projects }: AllWorkProps) {
                                             <ArrowUpRight
                                                 size={13}
                                                 strokeWidth={1.75}
-                                                className="text-foreground/70"
+                                                className="text-foreground/70 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                                             />
                                         )}
                                     </h3>

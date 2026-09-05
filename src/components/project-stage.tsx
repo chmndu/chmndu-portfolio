@@ -63,6 +63,7 @@ export default function ProjectStage({
               alt={`${project.title} project preview`}
               fill
               sizes="(max-width: 768px) 100vw, 60vw"
+              loading="eager"
               className="object-cover"
             />
           </div>
