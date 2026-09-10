@@ -8,8 +8,8 @@ export type Project = {
   selectedImage: string;
   liveUrl?: string;
   githubUrl?: string;
-  caseStudy?: string;
   externalUrl?: string;
+  icon: string;
 };
 
 export const projects: Project[] = [
@@ -26,10 +26,11 @@ export const projects: Project[] = [
       "Gemini API",
       "Tailwind CSS",
     ],
-    image: "/projects/wordulary.webp",
-    selectedImage: "/projects/wordulary-selected.webp",
+    image: "/projects/wordulary/stage.webp",
+    selectedImage: "/projects/wordulary/selected.webp",
     liveUrl: "https://wordulary.vercel.app/",
     githubUrl: "https://github.com/chmndu/wordulary",
+    icon: "/projects/wordulary/icon.svg",
   },
 
   {
@@ -45,9 +46,10 @@ export const projects: Project[] = [
       "shadcn/ui",
       "html-to-image",
     ],
-    image: "/projects/invoice-generator.webp",
-    selectedImage: "/projects/invoice-generator-selected.webp",
+    image: "/projects/invoice-generator/stage.webp",
+    selectedImage: "/projects/invoice-generator/selected.webp",
     liveUrl: "https://a4-invoice-generator.vercel.app/",
     githubUrl: "https://github.com/chmndu/invoice-generator",
+    icon: "/projects/invoice-generator/icon.svg",
   },
 ];

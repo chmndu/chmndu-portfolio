@@ -57,7 +57,7 @@ export default function ProjectStage({
           }}
           className="grid gap-8 md:grid-cols-[1.45fr_1fr] md:gap-10"
         >
-          <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#e9e8e5]">
+          <div className="relative aspect-[4/3] w-full overflow-hidden">
             <Image
               src={project.image}
               alt={`${project.title} project preview`}
@@ -90,15 +90,13 @@ export default function ProjectStage({
               </div>
 
               <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2">
-                {project.caseStudy && (
-                  <Link
-                    href={project.caseStudy}
-                    className="inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
-                  >
-                    View case study
-                    <ArrowRight size={15} strokeWidth={2} />
-                  </Link>
-                )}
+                <Link
+                  href={`/work/${project.slug}`}
+                  className="inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
+                >
+                  Details
+                  <ArrowRight size={15} strokeWidth={2} />
+                </Link>
 
                 {project.liveUrl && (
                   <a
@@ -107,7 +105,7 @@ export default function ProjectStage({
                     rel="noopener noreferrer"
                     className="inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
                   >
-                    View live site
+                    Live site
                     <ArrowUpRight size={15} strokeWidth={2} />
                   </a>
                 )}

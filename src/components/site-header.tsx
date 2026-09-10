@@ -7,7 +7,7 @@ import ContextDisplay from "@/components/context-display";
 export default function SiteHeader() {
   const pathname = usePathname();
 
-  const isWorkActive = pathname === "/";
+  const isWorkActive = pathname === "/" || pathname.startsWith("/work/");
   const isAboutActive = pathname === "/about";
 
   return (
