@@ -4,13 +4,13 @@ export default function SiteLinks() {
   return (
     <nav
       aria-label="External links"
-      className="flex items-center gap-5 text-sm"
+      className="mt-16 flex w-full items-center justify-start gap-5 border-t border-border pt-5 text-sm md:justify-end"
     >
       <a
         href="https://github.com/chmndu"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex cursor-pointer items-center gap-1.5 text-muted transition-colors hover:text-accent-deep active:text-accent"
+        className="inline-flex cursor-pointer items-center gap-1.5 text-subtle transition-colors hover:text-accent-deep active:text-accent"
       >
         GitHub
         <ArrowUpRight size={15} strokeWidth={2} />
@@ -20,7 +20,7 @@ export default function SiteLinks() {
         href="https://www.linkedin.com/in/chamindudahanayaka/"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex cursor-pointer items-center gap-1.5 text-muted transition-colors hover:text-accent-deep active:text-accent"
+        className="inline-flex cursor-pointer items-center gap-1.5 text-subtle transition-colors hover:text-accent-deep active:text-accent"
       >
         LinkedIn
         <ArrowUpRight size={15} strokeWidth={2} />
@@ -28,7 +28,7 @@ export default function SiteLinks() {
 
       <a
         href="mailto:chamindud.dahanayaka@gmail.com"
-        className="cursor-pointer text-muted transition-colors hover:text-accent-deep active:text-accent"
+        className="cursor-pointer text-subtle transition-colors hover:text-accent-deep active:text-accent"
       >
         Email
       </a>

@@ -1,17 +1,46 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import type { Project } from "@/data/projects";
 import { projects } from "@/data/projects";
 import { projectDetails } from "@/data/project-details";
 import SiteHeader from "@/components/site-header";
 import ProjectCanvas from "@/components/project-canvas";
 import SiteLinks from "@/components/site-links";
+import Link from "next/link";
 
 type ProjectPageProps = {
     params: Promise<{
         slug: string;
     }>;
 };
+
+function OtherSelectedWork({
+    projects,
+}: {
+    projects: Project[];
+}) {
+    if (projects.length === 0) return null;
+
+    return (
+        <div className="mt-20">
+            <h2 className="text-sm text-muted">Other selected work</h2>
+
+            <div className="mt-4 flex flex-col gap-3">
+                {projects.map((item) => (
+                    <Link
+                        key={item.slug}
+                        href={`/work/${item.slug}`}
+                        className="inline-flex w-fit cursor-pointer items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
+                    >
+                        {item.title}
+                        <ArrowRight size={15} strokeWidth={2} />
+                    </Link>
+                ))}
+            </div>
+        </div>
+    );
+}
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
     const { slug } = await params;
@@ -30,6 +59,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         notFound();
     }
 
+    const otherProjects = projects.filter(
+        (item) => item.slug !== project.slug
+    );
+
     return (
         <main className="mx-auto min-h-screen w-full max-w-[1120px] px-6 pb-6">
             <SiteHeader />
@@ -37,18 +70,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <div className="pt-2 md:pt-8">
                 <div className="grid gap-12 md:grid-cols-[360px_minmax(0,1fr)] md:gap-16">
                     <aside className="md:sticky md:top-8 md:self-start">
-                        <div className="flex items-center gap-3">
-                            <div className="flex size-14 shrink-0 items-center justify-center bg-accent text-xl font-medium">
+                        <div className="flex items-stretch">
+                            <div className="flex w-14 shrink-0 items-center justify-center bg-accent">
                                 <Image
                                     src={project.icon}
                                     alt=""
                                     width={36}
                                     height={36}
+                                    className="h-auto w-9"
                                 />
                             </div>
 
-                            <div>
-                                <h1 className="text-4xl font-medium tracking-[-0.02em]">
+                            <div className="pl-3">
+                                <h1 className="text-3xl font-medium leading-[1.05] tracking-[-0.02em] sm:text-4xl">
                                     {project.title}
                                 </h1>
 
@@ -62,12 +96,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                             {projectDetail.intro}
                         </p>
 
-                        <div className="mt-6 flex flex-wrap gap-x-2 gap-y-1.5 text-xs text-muted">
-                            {project.technologies.map((technology, index) => (
-                                <span key={technology}>
-                                    {index > 0 && (
-                                        <span className="mr-2">·</span>
-                                    )}
+                        <div className="mt-6 flex flex-wrap gap-1.5">
+                            {project.technologies.map((technology) => (
+                                <span
+                                    key={technology}
+                                    className="border border-border bg-surface px-2.5 py-1 text-xs text-subtle"
+                                >
                                     {technology}
                                 </span>
                             ))}
@@ -98,14 +132,20 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                                 </a>
                             )}
                         </div>
+
+                        <div className="hidden md:block">
+                            <OtherSelectedWork projects={otherProjects} />
+                        </div>
                     </aside>
 
                     <div>
                         <ProjectCanvas projectDetail={projectDetail} />
 
-                        <div className="mt-16 flex justify-start md:justify-end">
-                            <SiteLinks />
+                        <div className="md:hidden">
+                            <OtherSelectedWork projects={otherProjects} />
                         </div>
+
+                        <SiteLinks />
                     </div>
                 </div>
             </div>

@@ -98,9 +98,7 @@ export default function Home() {
           )}
         </AnimatePresence>
 
-        <div className="mt-16 flex justify-start md:justify-end">
-          <SiteLinks />
-        </div>
+        <SiteLinks />
       </section>
     </main>
   );

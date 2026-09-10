@@ -70,7 +70,7 @@ export default function ProjectStage({
 
           <div className="flex flex-col justify-between">
             <div>
-              <div className="text-xs text-muted">{project.year}</div>
+              <div className="text-sm text-muted">{project.year}</div>
 
               <h1 className="mt-3 text-4xl font-medium tracking-[-0.04em] sm:text-5xl">
                 {project.title}
@@ -80,10 +80,12 @@ export default function ProjectStage({
                 {project.description}
               </p>
 
-              <div className="mt-6 flex flex-wrap gap-y-1.5 text-xs text-subtle">
-                {project.technologies.map((technology, index) => (
-                  <span key={technology} className="whitespace-nowrap">
-                    {index > 0 && <span className="mx-2">·</span>}
+              <div className="mt-6 flex flex-wrap gap-1.5">
+                {project.technologies.map((technology) => (
+                  <span
+                    key={technology}
+                    className="border border-border bg-surface px-2.5 py-1 text-xs text-subtle"
+                  >
                     {technology}
                   </span>
                 ))}
