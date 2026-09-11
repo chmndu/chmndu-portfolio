@@ -22,6 +22,13 @@ export default function Home() {
 
   const selectedProject = projects[selectedIndex];
 
+  const context = {
+    initial: "building digital products for the web",
+    transition: showAll
+      ? "exploring the full archive"
+      : "exploring selected work",
+  };
+
   const goToPrevious = () => {
     if (selectedIndex > 0) {
       setDirection(-1);
@@ -48,7 +55,7 @@ export default function Home() {
 
   return (
     <main className="mx-auto min-h-screen w-full max-w-[1120px] px-6 pb-6">
-      <SiteHeader />
+      <SiteHeader context={context} />
 
       <section className="pt-2 md:pt-8">
         <div className="flex justify-start md:justify-center">

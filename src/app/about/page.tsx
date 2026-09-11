@@ -5,7 +5,12 @@ import ContactForm from "@/components/contact-form";
 export default function AboutPage() {
     return (
         <main className="mx-auto min-h-screen w-full max-w-[1120px] px-6 pb-6">
-            <SiteHeader />
+            <SiteHeader
+                context={{
+                    initial: "a little more about me",
+                    transition: "the person behind the work",
+                }}
+            />
 
             <div className="mt-2 grid gap-16 md:mt-8 md:grid-cols-[1fr_0.8fr] md:gap-20">
                 <div>

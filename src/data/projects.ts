@@ -10,6 +10,7 @@ export type Project = {
   githubUrl?: string;
   externalUrl?: string;
   icon: string;
+  context: string;
 };
 
 export const projects: Project[] = [
@@ -31,6 +32,7 @@ export const projects: Project[] = [
     liveUrl: "https://wordulary.vercel.app/",
     githubUrl: "https://github.com/chmndu/wordulary",
     icon: "/projects/wordulary/icon.svg",
+    context: "building a vocabulary learning experience",
   },
 
   {
@@ -51,5 +53,6 @@ export const projects: Project[] = [
     liveUrl: "https://a4-invoice-generator.vercel.app/",
     githubUrl: "https://github.com/chmndu/invoice-generator",
     icon: "/projects/invoice-generator/icon.svg",
+    context: "turning invoices into a simpler workflow",
   },
 ];

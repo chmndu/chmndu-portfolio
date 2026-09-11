@@ -4,7 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ContextDisplay from "@/components/context-display";
 
-export default function SiteHeader() {
+type SiteHeaderProps = {
+  context: {
+    initial: string;
+    transition: string;
+  };
+};
+
+export default function SiteHeader({ context }: SiteHeaderProps) {
   const pathname = usePathname();
 
   const isWorkActive = pathname === "/" || pathname.startsWith("/work/");
@@ -39,11 +46,9 @@ export default function SiteHeader() {
 
       <div className="col-span-2 mt-7 justify-self-start md:col-span-1 md:col-start-2 md:row-start-1 md:mt-0 md:justify-self-center">
         <ContextDisplay
-          text={
-            isAboutActive
-              ? "a little more about me"
-              : "building digital products for the web"
-          }
+          key={`${context.initial}-${context.transition}`}
+          initial={context.initial}
+          transition={context.transition}
         />
       </div>
     </header>

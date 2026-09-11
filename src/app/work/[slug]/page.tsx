@@ -65,7 +65,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
     return (
         <main className="mx-auto min-h-screen w-full max-w-[1120px] px-6 pb-6">
-            <SiteHeader />
+            <SiteHeader
+                context={{
+                    initial: "understanding the product",
+                    transition: project.context,
+                }}
+            />
 
             <div className="pt-2 md:pt-8">
                 <div className="grid gap-12 md:grid-cols-[360px_minmax(0,1fr)] md:gap-16">
