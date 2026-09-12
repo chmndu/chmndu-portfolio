@@ -31,10 +31,15 @@ function OtherSelectedWork({
                     <Link
                         key={item.slug}
                         href={`/work/${item.slug}`}
-                        className="inline-flex w-fit cursor-pointer items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
+                        className="group inline-flex w-fit items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
                     >
                         {item.title}
-                        <ArrowRight size={15} strokeWidth={2} />
+                        <ArrowRight
+                            aria-hidden="true"
+                            size={15}
+                            strokeWidth={2}
+                            className="transition-transform duration-300 group-hover:translate-x-0.5"
+                        />
                     </Link>
                 ))}
             </div>
@@ -73,7 +78,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             />
 
             <div className="pt-2 md:pt-8">
-                <div className="grid gap-12 md:grid-cols-[360px_minmax(0,1fr)] md:gap-16">
+                <div className="grid gap-12 md:grid-cols-[280px_minmax(0,1fr)] lg:grid-cols-[360px_minmax(0,1fr)] md:gap-16">
                     <aside className="md:sticky md:top-8 md:self-start">
                         <div className="flex items-stretch">
                             <div className="flex w-14 shrink-0 items-center justify-center bg-accent">
@@ -87,7 +92,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                             </div>
 
                             <div className="pl-3">
-                                <h1 className="text-3xl font-medium leading-[1.05] tracking-[-0.02em] sm:text-4xl">
+                                <h1 className="text-3xl font-medium leading-[1.05] tracking-[-0.02em] lg:text-4xl">
                                     {project.title}
                                 </h1>
 
@@ -118,10 +123,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                                     href={project.liveUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
+                                    className="group inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
                                 >
                                     Live site
-                                    <ArrowUpRight size={15} strokeWidth={2} />
+                                    <ArrowUpRight
+                                        aria-hidden="true"
+                                        size={15}
+                                        strokeWidth={2}
+                                        className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                                    />
                                 </a>
                             )}
 
@@ -130,10 +140,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                                     href={project.githubUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
+                                    className="group inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
                                 >
                                     GitHub
-                                    <ArrowUpRight size={15} strokeWidth={2} />
+                                    <ArrowUpRight
+                                        aria-hidden="true"
+                                        size={15}
+                                        strokeWidth={2}
+                                        className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                                    />
                                 </a>
                             )}
                         </div>

@@ -1,17 +1,32 @@
 "use client";
 
 import { useForm } from "@formspree/react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 export default function ContactForm() {
   const [state, handleSubmit] = useForm("xpwpgyyw");
 
   if (state.succeeded) {
     return (
-      <section className="md:pt-1">
-        <h2 className="text-sm text-muted">Get in touch</h2>
+      <section className="mt-12 lg:mt-10 lg:w-[380px] lg:justify-self-end">
+        <h2 className="border-l-2 border-accent pl-4 text-base font-medium text-foreground">
+          Get in touch
+        </h2>
 
-        <div className="mt-6 min-h-[180px]">
+        <a
+          href="mailto:chamindud.dahanayaka@gmail.com"
+          className="group mt-5 inline-flex items-center gap-1.5 text-base font-medium text-foreground transition-colors hover:text-accent-deep active:text-accent"
+        >
+          chamindud.dahanayaka@gmail.com
+          <ArrowUpRight
+            aria-hidden="true"
+            size={15}
+            strokeWidth={2}
+            className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          />
+        </a>
+
+        <div className="mt-7 max-w-sm border border-border p-6 md:p-7">
           <p className="text-base text-foreground">
             Thanks — your message has been sent.
           </p>
@@ -25,62 +40,81 @@ export default function ContactForm() {
   }
 
   return (
-    <section className="md:pt-1">
-      <h2 className="text-sm text-muted">Get in touch</h2>
+    <section className="mt-12 lg:mt-10 lg:w-[380px] lg:justify-self-end">
+      <h2 className="border-l-2 border-accent pl-4 text-base font-medium text-foreground">
+        Get in touch
+      </h2>
+
+      <a
+        href="mailto:chamindud.dahanayaka@gmail.com"
+        className="group mt-5 inline-flex items-center gap-1.5 text-base font-medium text-foreground transition-colors hover:text-accent-deep active:text-accent"
+      >
+        chamindud.dahanayaka@gmail.com
+        <ArrowUpRight
+          aria-hidden="true"
+          size={15}
+          strokeWidth={2}
+          className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+        />
+      </a>
 
       <form
         onSubmit={handleSubmit}
-        className="mt-6 max-w-md space-y-6"
+        className="mt-7 max-w-sm space-y-6 border border-border p-6 md:max-w-3xl md:p-7 md:space-y-8 lg:space-y-6"
       >
-        <div>
-          <label
-            htmlFor="name"
-            className="text-sm text-muted"
-          >
-            Name
-          </label>
+        <div className="grid gap-6 md:gap-12 md:grid-cols-2 lg:gap-6 lg:grid-cols-1">
+          <div className="space-y-6">
+            <div>
+              <label
+                htmlFor="name"
+                className="text-sm text-muted"
+              >
+                Name
+              </label>
 
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            className="mt-2 w-full border-b border-subtle bg-transparent py-2 text-sm outline-none transition-colors focus:border-accent"
-          />
-        </div>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                className="mt-2 w-full border-b border-subtle bg-transparent py-2 text-sm outline-none transition-colors focus:border-accent"
+              />
+            </div>
 
-        <div>
-          <label
-            htmlFor="email"
-            className="text-sm text-muted"
-          >
-            Email
-          </label>
+            <div>
+              <label
+                htmlFor="email"
+                className="text-sm text-muted"
+              >
+                Email
+              </label>
 
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            className="mt-2 w-full border-b border-subtle bg-transparent py-2 text-sm outline-none transition-colors focus:border-accent"
-          />
-        </div>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                className="mt-2 w-full border-b border-subtle bg-transparent py-2 text-sm outline-none transition-colors focus:border-accent"
+              />
+            </div>
+          </div>
 
-        <div>
-          <label
-            htmlFor="message"
-            className="text-sm text-muted"
-          >
-            Message
-          </label>
+          <div>
+            <label
+              htmlFor="message"
+              className="text-sm text-muted"
+            >
+              Message
+            </label>
 
-          <textarea
-            id="message"
-            name="message"
-            rows={4}
-            required
-            className="mt-2 w-full resize-none border-b border-subtle bg-transparent py-2 text-sm outline-none transition-colors focus:border-accent"
-          />
+            <textarea
+              id="message"
+              name="message"
+              rows={4}
+              required
+              className="mt-2 w-full resize-none border-b border-subtle bg-transparent py-2 text-sm outline-none transition-colors focus:border-accent"
+            />
+          </div>
         </div>
 
         {state.errors && (
@@ -92,11 +126,17 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={state.submitting}
-          className="inline-flex cursor-pointer items-center gap-2 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent disabled:cursor-not-allowed disabled:opacity-40"
+          className="group cursor-pointer inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:text-foreground disabled:active:text-foreground"
         >
           {state.submitting ? "Sending..." : "Send"}
+
           {!state.submitting && (
-            <ArrowRight size={15} strokeWidth={1.5} />
+            <ArrowRight
+              aria-hidden="true"
+              size={15}
+              strokeWidth={2}
+              className="transition-transform duration-300 group-hover:translate-x-0.5"
+            />
           )}
         </button>
       </form>

@@ -21,7 +21,7 @@ export default function SiteHeader({ context }: SiteHeaderProps) {
     <header className="grid grid-cols-[1fr_auto] items-center py-6 md:grid-cols-[1fr_auto_1fr]">
       <Link
         href="/"
-        className="justify-self-start cursor-pointer text-lg font-medium tracking-[-0.02em] transition-opacity hover:opacity-60 active:opacity-80"
+        className="justify-self-start text-lg font-medium tracking-[-0.02em] transition-opacity hover:opacity-60 active:opacity-80"
       >
         chmndu
       </Link>
@@ -29,7 +29,7 @@ export default function SiteHeader({ context }: SiteHeaderProps) {
       <nav className="flex items-center gap-6 justify-self-end text-sm md:col-start-3">
         <Link
           href="/"
-          className={`cursor-pointer transition-colors hover:text-accent-deep active:text-accent ${isWorkActive ? "text-foreground" : "text-muted"
+          className={`transition-colors hover:text-accent-deep active:text-accent ${isWorkActive ? "text-foreground" : "text-muted"
             }`}
         >
           Work
@@ -37,7 +37,7 @@ export default function SiteHeader({ context }: SiteHeaderProps) {
 
         <Link
           href="/about"
-          className={`cursor-pointer transition-colors hover:text-accent-deep active:text-accent ${isAboutActive ? "text-foreground" : "text-muted"
+          className={`transition-colors hover:text-accent-deep active:text-accent ${isAboutActive ? "text-foreground" : "text-muted"
             }`}
         >
           About

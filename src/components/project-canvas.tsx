@@ -32,11 +32,9 @@ export default function ProjectCanvas({
 
                 return (
                     <section key={`${block.type}-${index}`}>
-                        <div className="border-l-2 border-accent pl-4">
-                            <h2 className="text-base font-medium text-foreground">
-                                {block.title}
-                            </h2>
-                        </div>
+                        <h2 className="border-l-2 border-accent pl-4 text-base font-medium text-foreground">
+                            {block.title}
+                        </h2>
 
                         <p className="mt-5 max-w-2xl text-base leading-7 text-muted">
                             {block.body}

@@ -55,7 +55,7 @@ export default function ProjectStage({
             duration: shouldReduceMotion ? 0.15 : 0.3,
             ease: "easeOut",
           }}
-          className="grid gap-8 md:grid-cols-[1.45fr_1fr] md:gap-10"
+          className="grid gap-8 md:grid-cols-[1.45fr_1fr] lg:gap-10"
         >
           <div className="relative aspect-[4/3] w-full overflow-hidden">
             <Image
@@ -72,7 +72,7 @@ export default function ProjectStage({
             <div>
               <div className="text-sm text-muted">{project.year}</div>
 
-              <h1 className="mt-3 text-4xl font-medium tracking-[-0.04em] sm:text-5xl">
+              <h1 className="mt-3 text-4xl font-medium tracking-[-0.04em] lg:text-5xl">
                 {project.title}
               </h1>
 
@@ -94,10 +94,15 @@ export default function ProjectStage({
               <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2">
                 <Link
                   href={`/work/${project.slug}`}
-                  className="inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
+                  className="group inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
                 >
                   Details
-                  <ArrowRight size={15} strokeWidth={2} />
+                  <ArrowRight
+                    aria-hidden="true"
+                    size={15}
+                    strokeWidth={2}
+                    className="transition-transform duration-300 group-hover:translate-x-0.5"
+                  />
                 </Link>
 
                 {project.liveUrl && (
@@ -105,10 +110,15 @@ export default function ProjectStage({
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
+                    className="group inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
                   >
                     Live site
-                    <ArrowUpRight size={15} strokeWidth={2} />
+                    <ArrowUpRight
+                      aria-hidden="true"
+                      size={15}
+                      strokeWidth={2}
+                      className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    />
                   </a>
                 )}
 
@@ -117,10 +127,15 @@ export default function ProjectStage({
                     href={project.externalUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
+                    className="group inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
                   >
                     View project
-                    <ArrowUpRight size={15} strokeWidth={2} />
+                    <ArrowUpRight
+                      aria-hidden="true"
+                      size={15}
+                      strokeWidth={2}
+                      className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    />
                   </a>
                 )}
 
@@ -129,10 +144,15 @@ export default function ProjectStage({
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
+                    className="group inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
                   >
                     GitHub
-                    <ArrowUpRight size={15} strokeWidth={2} />
+                    <ArrowUpRight
+                      aria-hidden="true"
+                      size={15}
+                      strokeWidth={2}
+                      className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    />
                   </a>
                 )}
               </div>

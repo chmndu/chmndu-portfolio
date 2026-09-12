@@ -12,14 +12,16 @@ export default function AllWork({ projects }: AllWorkProps) {
     return (
         <section className="mt-8 md:mt-12">
             <div>
-                <h2 className="text-sm text-muted">Selected work</h2>
+                <h2 className="border-l-2 border-accent pl-4 text-base font-medium text-foreground">
+                    Selected work
+                </h2>
 
-                <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+                <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
                     {projects.map((project) => (
                         <Link
                             key={project.slug}
                             href={`/work/${project.slug}`}
-                            className="group block cursor-pointer"
+                            className="group block"
                         >
                             <div className="relative aspect-[4/3] w-full overflow-hidden md:aspect-[16/9]">
                                 <Image
@@ -35,6 +37,7 @@ export default function AllWork({ projects }: AllWorkProps) {
                                         {project.title}
 
                                         <ArrowUpRight
+                                            aria-hidden="true"
                                             size={13}
                                             strokeWidth={1.75}
                                             className="text-foreground/70 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -62,9 +65,11 @@ export default function AllWork({ projects }: AllWorkProps) {
             </div>
 
             <div className="mt-16">
-                <h2 className="text-sm text-muted">Other work</h2>
+                <h2 className="border-l-2 border-accent pl-4 text-base font-medium text-foreground">
+                    Other work
+                </h2>
 
-                <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-12 md:grid-rows-6">
+                <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-12 md:grid-rows-6">
                     {otherWork.map((item, index) => {
                         const sizes = [
                             "md:col-span-3 md:row-span-4",
@@ -105,6 +110,7 @@ export default function AllWork({ projects }: AllWorkProps) {
 
                                         {item.href && (
                                             <ArrowUpRight
+                                                aria-hidden="true"
                                                 size={13}
                                                 strokeWidth={1.75}
                                                 className="text-foreground/70 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -132,7 +138,7 @@ export default function AllWork({ projects }: AllWorkProps) {
                                 href={item.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={`group relative block min-h-56 cursor-pointer overflow-hidden border border-border bg-accent-soft ${sizes[index]}`}
+                                className={`group relative block min-h-56 overflow-hidden border border-border bg-accent-soft ${sizes[index]}`}
                             >
                                 {cardContent}
                             </a>
