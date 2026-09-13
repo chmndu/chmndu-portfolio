@@ -21,7 +21,7 @@ export default function SiteHeader({ context }: SiteHeaderProps) {
     <header className="grid grid-cols-[1fr_auto] items-center py-6 md:grid-cols-[1fr_auto_1fr]">
       <Link
         href="/"
-        className="justify-self-start text-lg font-medium tracking-[-0.02em] transition-opacity hover:opacity-60 active:opacity-80"
+        className="justify-self-start text-lg font-medium tracking-[-0.02em] transition-colors hover:text-accent-deep active:text-accent"
       >
         chmndu
       </Link>

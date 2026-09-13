@@ -1,10 +1,22 @@
 "use client";
 
+import { useState } from "react";
 import { useForm } from "@formspree/react";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, Check, Copy } from "lucide-react";
 
 export default function ContactForm() {
   const [state, handleSubmit] = useForm("xpwpgyyw");
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = async () => {
+    await navigator.clipboard.writeText("chamindud.dahanayaka@gmail.com");
+
+    setCopied(true);
+
+    window.setTimeout(() => {
+      setCopied(false);
+    }, 1800);
+  };
 
   if (state.succeeded) {
     return (
@@ -13,20 +25,37 @@ export default function ContactForm() {
           Get in touch
         </h2>
 
-        <a
-          href="mailto:chamindud.dahanayaka@gmail.com"
-          className="group mt-5 inline-flex items-center gap-1.5 text-base font-medium text-foreground transition-colors hover:text-accent-deep active:text-accent"
-        >
-          chamindud.dahanayaka@gmail.com
-          <ArrowUpRight
-            aria-hidden="true"
-            size={15}
-            strokeWidth={2}
-            className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-          />
-        </a>
+        <div className="mt-5 flex items-center gap-2">
+          <a
+            href="mailto:chamindud.dahanayaka@gmail.com"
+            className="text-base font-medium text-foreground transition-colors hover:text-accent-deep active:text-accent"
+          >
+            chamindud.dahanayaka@gmail.com
+          </a>
 
-        <div className="mt-7 max-w-sm border border-border p-6 md:p-7">
+          <button
+            type="button"
+            onClick={handleCopyEmail}
+            aria-label={copied ? "Email copied" : "Copy email address"}
+            className="cursor-pointer text-muted transition-colors hover:text-accent-deep active:text-accent"
+          >
+            {copied ? (
+              <Check
+                aria-hidden="true"
+                size={15}
+                strokeWidth={2}
+              />
+            ) : (
+              <Copy
+                aria-hidden="true"
+                size={15}
+                strokeWidth={2}
+              />
+            )}
+          </button>
+        </div>
+
+        <div className="mt-7 max-w-sm border border-border bg-accent-soft p-6 md:p-7">
           <p className="text-base text-foreground">
             Thanks — your message has been sent.
           </p>
@@ -45,18 +74,35 @@ export default function ContactForm() {
         Get in touch
       </h2>
 
-      <a
-        href="mailto:chamindud.dahanayaka@gmail.com"
-        className="group mt-5 inline-flex items-center gap-1.5 text-base font-medium text-foreground transition-colors hover:text-accent-deep active:text-accent"
-      >
-        chamindud.dahanayaka@gmail.com
-        <ArrowUpRight
-          aria-hidden="true"
-          size={15}
-          strokeWidth={2}
-          className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-        />
-      </a>
+      <div className="mt-5 flex items-center gap-2">
+        <a
+          href="mailto:chamindud.dahanayaka@gmail.com"
+          className="text-base font-medium text-foreground transition-colors hover:text-accent-deep active:text-accent"
+        >
+          chamindud.dahanayaka@gmail.com
+        </a>
+
+        <button
+          type="button"
+          onClick={handleCopyEmail}
+          aria-label={copied ? "Email copied" : "Copy email address"}
+          className="cursor-pointer text-muted transition-colors hover:text-accent-deep active:text-accent"
+        >
+          {copied ? (
+            <Check
+              aria-hidden="true"
+              size={15}
+              strokeWidth={2}
+            />
+          ) : (
+            <Copy
+              aria-hidden="true"
+              size={15}
+              strokeWidth={2}
+            />
+          )}
+        </button>
+      </div>
 
       <form
         onSubmit={handleSubmit}

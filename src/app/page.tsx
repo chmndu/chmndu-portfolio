@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import SiteHeader from "@/components/site-header";
-import ProjectIndex from "@/components/project-index";
-import ProjectStage from "@/components/project-stage";
-import AllWork from "@/components/all-work";
-import SiteLinks from "@/components/site-links";
+import WorkToggle from "@/components/work-toggle";
+import SelectedWork from "@/components/selected-work";
+import OtherWork from "@/components/other-work";
+import SiteFooter from "@/components/site-footer";
 import { projects } from "@/data/projects";
 import {
   AnimatePresence,
@@ -13,44 +13,19 @@ import {
   useReducedMotion,
 } from "framer-motion";
 
+type WorkView = "selected" | "other";
+
 export default function Home() {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
-  const [showAll, setShowAll] = useState(false);
+  const [view, setView] = useState<WorkView>("selected");
 
   const shouldReduceMotion = useReducedMotion();
 
-  const selectedProject = projects[selectedIndex];
-
   const context = {
     initial: "building digital products for the web",
-    transition: showAll
-      ? "exploring the full archive"
-      : "exploring selected work",
-  };
-
-  const goToPrevious = () => {
-    if (selectedIndex > 0) {
-      setDirection(-1);
-      setSelectedIndex(selectedIndex - 1);
-    }
-  };
-
-  const goToNext = () => {
-    if (selectedIndex < projects.length - 1) {
-      setDirection(1);
-      setSelectedIndex(selectedIndex + 1);
-    }
-  };
-
-  const selectProject = (index: number) => {
-    setShowAll(false);
-    setDirection(0);
-    setSelectedIndex(index);
-  };
-
-  const showAllProjects = () => {
-    setShowAll(true);
+    transition:
+      view === "selected"
+        ? "exploring selected work"
+        : "exploring other work",
   };
 
   return (
@@ -59,30 +34,11 @@ export default function Home() {
 
       <section className="pt-2 md:pt-8">
         <div className="flex justify-start md:justify-center">
-          <ProjectIndex
-            projects={projects}
-            selectedIndex={selectedIndex}
-            onSelect={selectProject}
-            onShowAll={showAllProjects}
-            showAll={showAll}
-          />
+          <WorkToggle view={view} onChange={setView} />
         </div>
 
         <AnimatePresence mode="wait" initial={false}>
-          {showAll ? (
-            <motion.div
-              key="all"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{
-                duration: shouldReduceMotion ? 0.15 : 0.3,
-                ease: "easeOut",
-              }}
-            >
-              <AllWork projects={projects} />
-            </motion.div>
-          ) : (
+          {view === "selected" ? (
             <motion.div
               key="selected"
               initial={{ opacity: 0 }}
@@ -93,20 +49,26 @@ export default function Home() {
                 ease: "easeOut",
               }}
             >
-              <ProjectStage
-                project={selectedProject}
-                onPrevious={goToPrevious}
-                onNext={goToNext}
-                canGoPrevious={selectedIndex > 0}
-                canGoNext={selectedIndex < projects.length - 1}
-                direction={direction}
-              />
+              <SelectedWork projects={projects} />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="other"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{
+                duration: shouldReduceMotion ? 0.15 : 0.3,
+                ease: "easeOut",
+              }}
+            >
+              <OtherWork />
             </motion.div>
           )}
         </AnimatePresence>
-
-        <SiteLinks />
       </section>
+
+      <SiteFooter />
     </main>
   );
 }

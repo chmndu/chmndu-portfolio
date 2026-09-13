@@ -4,8 +4,7 @@ export type Project = {
   year: string;
   description: string;
   technologies: string[];
-  image: string;
-  selectedImage: string;
+  featuredImage: string;
   liveUrl?: string;
   githubUrl?: string;
   externalUrl?: string;
@@ -27,8 +26,7 @@ export const projects: Project[] = [
       "Gemini API",
       "Tailwind CSS",
     ],
-    image: "/projects/wordulary/stage.webp",
-    selectedImage: "/projects/wordulary/selected.webp",
+    featuredImage: "/projects/wordulary/featured.webp",
     liveUrl: "https://wordulary.vercel.app/",
     githubUrl: "https://github.com/chmndu/wordulary",
     icon: "/projects/wordulary/icon.svg",
@@ -48,8 +46,7 @@ export const projects: Project[] = [
       "shadcn/ui",
       "html-to-image",
     ],
-    image: "/projects/invoice-generator/stage.webp",
-    selectedImage: "/projects/invoice-generator/selected.webp",
+    featuredImage: "/projects/invoice-generator/featured.webp",
     liveUrl: "https://a4-invoice-generator.vercel.app/",
     githubUrl: "https://github.com/chmndu/invoice-generator",
     icon: "/projects/invoice-generator/icon.svg",

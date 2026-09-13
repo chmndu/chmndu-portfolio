@@ -1,6 +1,6 @@
 import SiteHeader from "@/components/site-header";
-import { ArrowUpRight } from "lucide-react";
 import ContactForm from "@/components/contact-form";
+import SiteFooter from "@/components/site-footer";
 
 const tools = [
     "HTML",
@@ -54,81 +54,28 @@ export default function AboutPage() {
                         </div>
                     </section>
 
-                    <div className="grid sm:grid-cols-2 sm:gap-12 lg:grid-cols-1 lg:gap-0">
-                        <section className="mt-12">
-                            <h2 className="border-l-2 border-accent pl-4 text-base font-medium text-foreground">
-                                Tools
-                            </h2>
+                    <section className="mt-12">
+                        <h2 className="border-l-2 border-accent pl-4 text-base font-medium text-foreground">
+                            Tools
+                        </h2>
 
-                            <div className="mt-5 flex max-w-xl flex-wrap gap-1.5">
-                                {tools.map((tool) => (
-                                    <span
-                                        key={tool}
-                                        className="border border-border bg-accent-soft px-3 py-1.5 text-sm text-foreground"
-                                    >
-                                        {tool}
-                                    </span>
-                                ))}
-                            </div>
-                        </section>
-
-                        <section className="mt-12">
-                            <h2 className="border-l-2 border-accent pl-4 text-base font-medium text-foreground">
-                                Elsewhere
-                            </h2>
-
-                            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
-                                <a
-                                    href="#"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="group inline-flex items-center gap-1.5 text-base font-medium text-foreground transition-colors hover:text-accent-deep"
+                        <div className="mt-5 flex max-w-xl flex-wrap gap-1.5">
+                            {tools.map((tool) => (
+                                <span
+                                    key={tool}
+                                    className="border border-border bg-accent-soft px-3 py-1.5 text-sm text-foreground"
                                 >
-                                    Resume
-                                    <ArrowUpRight
-                                        aria-hidden="true"
-                                        size={15}
-                                        strokeWidth={2}
-                                        className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                                    />
-                                </a>
-
-                                <a
-                                    href="https://github.com/chmndu"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="group inline-flex items-center gap-1.5 text-base font-medium text-foreground transition-colors hover:text-accent-deep"
-                                >
-                                    GitHub
-                                    <ArrowUpRight
-                                        aria-hidden="true"
-                                        size={15}
-                                        strokeWidth={2}
-                                        className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                                    />
-                                </a>
-
-                                <a
-                                    href="https://www.linkedin.com/in/chamindudahanayaka/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="group inline-flex items-center gap-1.5 text-base font-medium text-foreground transition-colors hover:text-accent-deep"
-                                >
-                                    LinkedIn
-                                    <ArrowUpRight
-                                        aria-hidden="true"
-                                        size={15}
-                                        strokeWidth={2}
-                                        className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                                    />
-                                </a>
-                            </div>
-                        </section>
-                    </div>
+                                    {tool}
+                                </span>
+                            ))}
+                        </div>
+                    </section>
                 </div>
 
                 <ContactForm />
             </div>
+
+            <SiteFooter />
         </main>
     );
 }
