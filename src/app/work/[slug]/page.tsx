@@ -8,12 +8,29 @@ import SiteHeader from "@/components/site-header";
 import ProjectCanvas from "@/components/project-canvas";
 import SiteFooter from "@/components/site-footer";
 import Link from "next/link";
+import type { Metadata } from "next";
 
 type ProjectPageProps = {
     params: Promise<{
         slug: string;
     }>;
 };
+
+export async function generateMetadata({
+    params,
+}: ProjectPageProps): Promise<Metadata> {
+    const { slug } = await params;
+
+    const project = projects.find((project) => project.slug === slug);
+
+    if (!project) {
+        return {};
+    }
+
+    return {
+        title: project.title,
+    };
+}
 
 function OtherSelectedWork({
     projects,

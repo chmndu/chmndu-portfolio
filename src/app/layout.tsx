@@ -24,8 +24,12 @@ const satoshi = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "chmndu",
-  description: "Personal portfolio of chmndu.",
+  title: {
+    default: "Work — chmndu",
+    template: "%s — chmndu",
+  },
+  description:
+    "Personal portfolio of chmndu, a frontend developer building digital products for the web.",
 };
 
 export default function RootLayout({

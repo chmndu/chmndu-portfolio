@@ -31,6 +31,7 @@ export default function SelectedWork({ projects }: SelectedWorkProps) {
                                         alt={`${project.title} project preview`}
                                         fill
                                         sizes="(max-width: 768px) 100vw, 60vw"
+                                        loading={index === 0 ? "eager" : "lazy"}
                                         className="object-cover"
                                     />
                                 </div>

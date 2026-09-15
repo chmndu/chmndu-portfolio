@@ -1,6 +1,12 @@
 import SiteHeader from "@/components/site-header";
 import ContactForm from "@/components/contact-form";
 import SiteFooter from "@/components/site-footer";
+import AboutVisual from "@/components/about-visual";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "About",
+};
 
 const tools = [
     "HTML",
@@ -39,7 +45,7 @@ export default function AboutPage() {
 
                         <div className="mt-2 h-0.5 w-8 bg-accent" />
 
-                        <div className="mt-5 max-w-xl space-y-5 text-base leading-7 text-muted">
+                        <div className="mt-7 max-w-xl space-y-5 text-base leading-7 text-muted">
                             <p>
                                 I build thoughtful interfaces and digital products for the web,
                                 with a focus on clarity, responsiveness, and the details that make
@@ -56,7 +62,7 @@ export default function AboutPage() {
 
                     <section className="mt-12">
                         <h2 className="border-l-2 border-accent pl-4 text-base font-medium text-foreground">
-                            Tools
+                            What I work with
                         </h2>
 
                         <div className="mt-5 flex max-w-xl flex-wrap gap-1.5">
@@ -70,6 +76,8 @@ export default function AboutPage() {
                             ))}
                         </div>
                     </section>
+                    
+                    <AboutVisual />
                 </div>
 
                 <ContactForm />

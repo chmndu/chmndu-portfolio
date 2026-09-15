@@ -20,7 +20,7 @@ export default function ContactForm() {
 
   if (state.succeeded) {
     return (
-      <section className="mt-12 lg:mt-10 lg:w-[380px] lg:justify-self-end">
+      <section className="mt-12 lg:w-[380px] lg:justify-self-end">
         <h2 className="border-l-2 border-accent pl-4 text-base font-medium text-foreground">
           Get in touch
         </h2>
@@ -69,7 +69,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section className="mt-12 lg:mt-10 lg:w-[380px] lg:justify-self-end">
+    <section className="mt-12 lg:w-[380px] lg:justify-self-end">
       <h2 className="border-l-2 border-accent pl-4 text-base font-medium text-foreground">
         Get in touch
       </h2>
