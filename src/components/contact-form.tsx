@@ -30,7 +30,7 @@ export default function ContactForm() {
             href="mailto:chamindud.dahanayaka@gmail.com"
             className="text-base font-medium text-foreground transition-colors hover:text-accent-deep active:text-accent"
           >
-            chamindud.dahanayaka@gmail.com
+            chamindud.dahanayaka<wbr />@gmail.com
           </a>
 
           <button
@@ -79,7 +79,7 @@ export default function ContactForm() {
           href="mailto:chamindud.dahanayaka@gmail.com"
           className="text-base font-medium text-foreground transition-colors hover:text-accent-deep active:text-accent"
         >
-          chamindud.dahanayaka@gmail.com
+          chamindud.dahanayaka<wbr />@gmail.com
         </a>
 
         <button

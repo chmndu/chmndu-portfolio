@@ -23,7 +23,7 @@ export default function SiteFooter() {
           className="flex flex-wrap items-center gap-x-5 gap-y-2"
         >
           <a
-            href="#"
+            href="/resume/Chamindu-Dahanayaka-Frontend-Developer-CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-1.5 text-muted transition-colors hover:text-accent-deep active:text-accent"

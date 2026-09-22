@@ -24,8 +24,8 @@ export default function Home() {
     initial: "building digital products for the web",
     transition:
       view === "selected"
-        ? "exploring selected work"
-        : "exploring other work",
+        ? "a closer look at the work"
+        : "other things I've made",
   };
 
   return (
