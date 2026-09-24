@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 export default function SiteFooter() {
   return (
     <footer className="mt-16 border-t border-border pt-5 sm:px-5">
-      <div className="flex flex-col gap-4 text-sm sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col-reverse gap-4 text-sm sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
           <Link
             href="/"

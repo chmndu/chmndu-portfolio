@@ -122,7 +122,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                         {projectDetail.intro}
                     </p>
 
-                    <div className="mt-6 flex flex-wrap gap-1.5">
+                    <div className="mt-5 flex flex-wrap gap-1.5">
                         {project.technologies.map((technology) => (
                             <span
                                 key={technology}

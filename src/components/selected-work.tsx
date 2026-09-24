@@ -53,7 +53,7 @@ export default function SelectedWork({ projects }: SelectedWorkProps) {
                                             {project.description}
                                         </p>
 
-                                        <div className="mt-6 flex flex-wrap gap-1.5">
+                                        <div className="mt-5 flex flex-wrap gap-1.5">
                                             {project.technologies.map((technology) => (
                                                 <span
                                                     key={technology}

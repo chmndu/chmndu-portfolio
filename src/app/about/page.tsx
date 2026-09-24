@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import SiteHeader from "@/components/site-header";
 import ContactForm from "@/components/contact-form";
 import SiteFooter from "@/components/site-footer";
@@ -58,6 +59,21 @@ export default function AboutPage() {
                                 right.
                             </p>
                         </div>
+
+                        <a
+                            href="/resume/Chamindu-Dahanayaka-Frontend-Developer-CV.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group mt-7 inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent-deep active:text-accent"
+                        >
+                            Resume
+                            <ArrowUpRight
+                                aria-hidden="true"
+                                size={15}
+                                strokeWidth={2}
+                                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                            />
+                        </a>
                     </section>
 
                     <section className="mt-12">
@@ -76,7 +92,7 @@ export default function AboutPage() {
                             ))}
                         </div>
                     </section>
-                    
+
                     <AboutVisual />
                 </div>
 
